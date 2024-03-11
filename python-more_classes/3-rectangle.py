@@ -1,27 +1,35 @@
 #!/usr/bin/python3
-
-"""Define a rectangle"""
+"""
+    define a class 'Square'
+"""
 
 
 class Rectangle:
-    """Represent a rectangle"""
+    """
+        rectangle with private instance attributes: 'width' and 'height'
+    """
 
     def __init__(self, width=0, height=0):
-        """initialize a new rectangle.
-        Args:
-            width(int): The width of the rectanglr.
-            Height(int): The height of the rectangle.
-            """
+        """
+            Args:
+                width (int): width of the new rectangle
+                height (int): height of the new rectangle
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """set the width of the rectangle"""
+        """
+            get the width of the rectangle
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """
+            validates width as a positive integer
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -30,7 +38,9 @@ class Rectangle:
 
     @property
     def height(self):
-        """set the height of the rectangle"""
+        """
+            get the height of the rectangle
+        """
         return self.__height
 
     @height.setter
@@ -42,22 +52,25 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Calculate area of the rectangle"""
-        return self.width * self.height
+        return (self.__width * self.__height)
 
     def perimeter(self):
-        """Calculate perimeter of the rectangle"""
-        return 2 * (self.width + self.height)
+        if self.__width == 0 or self.__height == 0:
+            return (0)
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """String representation of the rectangle"""
-        if self.width == 0 or self.height == 0:
-            return ""
-        rectangle_str = ""
-        for _ in range(self.height):
-            rectangle_str += "#" * self.width + "\n"
-        return rectangle_str.rstrip()
+        """
+            Return:
+                    printable representation of the rectangle(#)
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ("")
 
-    def __repr__(self):
-        """Representation of the rectangle"""
-        return "Rectangle({}, {})".format(self.width, self.height)
+        rect = []
+        for i in range(self.__height):
+            [rect.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
+
