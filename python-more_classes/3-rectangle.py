@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# class 'Rectangle' that defines a rectangle by:
+# (based on 2-rectangle.py)
 """
     define a class 'Square'
 """
@@ -45,6 +47,9 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
+        """
+            validates height as a positive integer
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -52,9 +57,17 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """
+            Return:
+                area of the rectangle
+        """
         return (self.__width * self.__height)
 
     def perimeter(self):
+        """
+            Return:
+                perimeter of the rectangle
+        """
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
@@ -73,5 +86,3 @@ class Rectangle:
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
-
-
