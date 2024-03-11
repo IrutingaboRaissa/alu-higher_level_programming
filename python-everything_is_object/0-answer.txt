@@ -1,1 +1,1 @@
-Executable File·1 lines (1 loc) · 5 Bytes
+type
