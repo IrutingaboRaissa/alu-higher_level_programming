@@ -10,7 +10,7 @@ def pascal_triangle(n):
     triangle = []
     for i in range(n):
         if i == 0:
-            triangle.appendd([1])
+            triangle.append([1])
             continue
         else:
             new_entry = [1]
