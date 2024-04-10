@@ -1,4 +1,5 @@
-ss definition of city """
+#!/usr/bin/pyhton3
+""class definition of city """
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column
 from sqlalchemy import Integer, String, ForeignKey
